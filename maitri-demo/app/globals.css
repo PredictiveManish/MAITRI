@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f9fafb; /* soft off-white for light mode */
+  --foreground: #1a1a1a; /* dark text */
+  --accent: #2563eb;     /* Tailwind blue-600 for highlights */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a; /* slate-900 */
+    --foreground: #f1f5f9; /* slate-100 */
+    --accent: #3b82f6;     /* Tailwind blue-500 */
+  }
+}
+
+body {
+  background: linear-gradient(135deg, var(--background), #ffffff);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Accent utility for titles/buttons */
+.accent-text {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+button {
+  background-color: var(--accent);
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #1d4ed8; /* darker blue */
+  transform: scale(1.03);
+}
